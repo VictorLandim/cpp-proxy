@@ -54,6 +54,9 @@
     <ClCompile Include="response.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="spider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="erorrs.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="spider.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

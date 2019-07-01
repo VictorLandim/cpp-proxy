@@ -1,5 +1,12 @@
 #include "proxyServer.hpp"
 
+ProxyServer::ProxyServer()
+{
+	request = new Request();
+	response = new Response();
+}
+
+
 ProxyServer::ProxyServer(int port)
 {
 	this->port = port;

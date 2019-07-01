@@ -27,6 +27,7 @@ public:
 	Request* request;
 	Response* response;
 
+	ProxyServer();
 	ProxyServer(int port);
 	~ProxyServer();
 

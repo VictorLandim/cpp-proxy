@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'proxyapp.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.3
+** Created by: Qt User Interface Compiler version 5.13.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -94,16 +94,16 @@ public:
 
     void retranslateUi(QMainWindow *ProxyAppClass)
     {
-        ProxyAppClass->setWindowTitle(QApplication::translate("ProxyAppClass", "ProxyApp", nullptr));
-        responseButton->setText(QApplication::translate("ProxyAppClass", "Send response", nullptr));
-        spiderButton->setText(QApplication::translate("ProxyAppClass", "Spider", nullptr));
-        statusLabel->setText(QApplication::translate("ProxyAppClass", "Status", nullptr));
-        label_2->setText(QApplication::translate("ProxyAppClass", "Client request headers", nullptr));
-        label_4->setText(QApplication::translate("ProxyAppClass", "Website URL", nullptr));
-        dumpButton->setText(QApplication::translate("ProxyAppClass", "Dump", nullptr));
-        label_3->setText(QApplication::translate("ProxyAppClass", "Host response headers", nullptr));
-        label->setText(QApplication::translate("ProxyAppClass", "Status:", nullptr));
-        requestButton->setText(QApplication::translate("ProxyAppClass", "Send request", nullptr));
+        ProxyAppClass->setWindowTitle(QCoreApplication::translate("ProxyAppClass", "ProxyApp", nullptr));
+        responseButton->setText(QCoreApplication::translate("ProxyAppClass", "Send response", nullptr));
+        spiderButton->setText(QCoreApplication::translate("ProxyAppClass", "Spider", nullptr));
+        statusLabel->setText(QCoreApplication::translate("ProxyAppClass", "Status", nullptr));
+        label_2->setText(QCoreApplication::translate("ProxyAppClass", "Client request headers", nullptr));
+        label_4->setText(QCoreApplication::translate("ProxyAppClass", "Website URL", nullptr));
+        dumpButton->setText(QCoreApplication::translate("ProxyAppClass", "Dump", nullptr));
+        label_3->setText(QCoreApplication::translate("ProxyAppClass", "Host response headers", nullptr));
+        label->setText(QCoreApplication::translate("ProxyAppClass", "Status:", nullptr));
+        requestButton->setText(QCoreApplication::translate("ProxyAppClass", "Send request", nullptr));
     } // retranslateUi
 
 };
