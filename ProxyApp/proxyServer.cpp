@@ -133,6 +133,7 @@ void ProxyServer::makeRemoteRequest(std::string request, std::string host)
 	// It will search for IPv4 addresses using the TCP-Protocol.
 	struct addrinfo* targetAdressInfo = NULL;
 	DWORD getAddrRes = getaddrinfo(host.c_str(), NULL, &hints, &targetAdressInfo);
+	std::cout << "REQUEST: " << request << "HOST: " << host << std::endl;
 	if (getAddrRes != 0 || targetAdressInfo == NULL)
 	{
 		std::cout << "# Could not resolve the host name." << std::endl;
