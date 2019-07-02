@@ -3,6 +3,7 @@
 #include <unordered_map>
 #include "proxyServer.hpp"
 #include <iostream>
+#include <fstream>
 
 typedef struct url_ref {
 	int level;
@@ -16,12 +17,14 @@ private:
 	std::string target;
 	std::string start_url;
 	ProxyServer* proxyServer;
-	void printToStream();
+	std::ofstream myfile;
+	std::string filename;
+	void printToFile();
 	void printToStream(std::string);
 	void Spider::recursive(int, std::string, ProxyServer*);
 public:
 	std::unordered_map<std::string, url_ref> url_map;
 	std::vector<std::string> ordered_urls;
-	Spider(std::string);
+	Spider(std::string, std::string);
 	std::vector<std::string> get_tree(std::string url, int profundidade);
 };

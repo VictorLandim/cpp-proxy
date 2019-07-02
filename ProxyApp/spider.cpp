@@ -1,7 +1,8 @@
 #include"spider.hpp"
 
-Spider::Spider(std::string target){
+Spider::Spider(std::string target, std::string filename){
 	this->target = target;
+	this->filename = filename;
 }
 
 std::vector<std::string> Spider::get_tree(std::string url,int depth) {
@@ -12,7 +13,9 @@ std::vector<std::string> Spider::get_tree(std::string url,int depth) {
 	this->start_url = url;
 	ProxyServer* proxyServer = new ProxyServer(8082);
 	recursive(0, start_url, proxyServer);
-	printToStream();
+	myfile.open(filename);
+	printToFile();
+	myfile.close();
 	return ordered_urls;
 }
 
@@ -80,13 +83,16 @@ void Spider::recursive(int depth, std::string url, ProxyServer* proxyServer) {
 	}
 }
 
-void Spider::printToStream() {
+void Spider::printToFile() {
+	if (!myfile.is_open()) {
+		std::cout << "Erro, nao foi possivel abrir o arquivo de saida " << filename << std::endl;
+	}
 	std::vector<std::string> redundancy_check;
 	if (this->url_map.find(this->start_url) == this->url_map.end()) {
 		std::cout << "Erro, nao foi possivel mostrar a url inicial" << std::endl;
 		return;
 	}
-	std::cout << this->target + this->start_url << std::endl;
+	myfile << this->target + this->start_url << std::endl;
 	this->ordered_urls.emplace_back(this->start_url);
 	this->curr_depth = 0;
 	for each (std::string url in url_map.at(this->start_url).urls){
@@ -101,7 +107,7 @@ void Spider::printToStream() {
 				new_global = FALSE;
 		}
 		if (new_local) {//no repeat
-			std::cout << "|->" << url << std::endl;
+			myfile << "|->" << url << std::endl;
 			this->ordered_urls.emplace_back(url);
 			redundancy_check.emplace_back(url);
 			if (new_global) {
@@ -132,9 +138,9 @@ void Spider::printToStream(std::string root) {
 		}
 		if (new_local) {//no repeat
 			for (int i = 0; i < this->curr_depth; i++) {
-				std::cout << "   ";
+				myfile << "   ";
 			}
-			std::cout << "|->" << url << std::endl;
+			myfile << "|->" << url << std::endl;
 			this->ordered_urls.emplace_back(url);
 			redundancy_check.emplace_back(url);
 			if (new_global && this->curr_depth == ref.level) {
