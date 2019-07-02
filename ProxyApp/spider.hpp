@@ -12,7 +12,9 @@ typedef struct url_ref {
 class Spider {
 private:
 	int max_depth;
+	int curr_depth;
 	std::string target;
+	std::string start_url;
 	ProxyServer* proxyServer;
 	void printToStream();
 	void printToStream(std::string);
@@ -21,5 +23,5 @@ public:
 	std::unordered_map<std::string, url_ref> url_map;
 	std::vector<std::string> ordered_urls;
 	Spider(std::string);
-	std::vector<std::string> get_tree(int profundidade);
+	std::vector<std::string> get_tree(std::string url, int profundidade);
 };

@@ -1,7 +1,7 @@
-#include "stdafx.h"
-#include <QtWidgets/QApplication>
-#include "proxyapp.h"
-//#include "spider.hpp"
+//#include "stdafx.h"
+//#include <QtWidgets/QApplication>
+//#include "proxyapp.h"
+#include "spider.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -14,18 +14,17 @@ int main(int argc, char *argv[])
 		freopen("CONIN$", "r", stdin);
 	}
 	#endif
-	
+	/*
 	QApplication a(argc, argv);
 	
 	ProxyApp window;
 	window.show();
 	
 	return a.exec();
+	*/
 	
-	/*
 	Spider * spider = new Spider("www.cplusplus.com");
-	spider->get_tree(1);
+	spider->get_tree("/", 1);
 	while (TRUE);
 	return 0;
-	*/
 }
