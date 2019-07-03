@@ -2,13 +2,14 @@
 #include "proxyServer.hpp"
 #include "request.hpp"
 
-ServerThread::ServerThread(QObject* parent) : QThread(parent)
+ServerThread::ServerThread(QObject* parent, int port) : QThread(parent)
 {
+	this->port = port;
 }
 
 void ServerThread::run()
 {
-	ProxyServer* proxyServer = new ProxyServer(8080);
+	ProxyServer* proxyServer = new ProxyServer(port);
 	std::cout << "> Proxy server listening to connections." << std::endl;
 	emit statusChanged("Proxy server is listening to connections.");
 

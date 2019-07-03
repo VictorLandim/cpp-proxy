@@ -13,7 +13,7 @@ ProxyApp::ProxyApp(QWidget *parent)
 	ui.requestButton->setDisabled(true);
 	ui.responseButton->setDisabled(true);
 
-	serverThread = new ServerThread(this);
+	serverThread = new ServerThread(this, port);
 
 	// old way of connecting
 	//connect(serverThread, SIGNAL(statusChanged(QString)), this, SLOT(setStatusText(QString)));
@@ -30,6 +30,9 @@ ProxyApp::ProxyApp(QWidget *parent)
 	serverThread->start();
 }
 
+void ProxyApp::setPort(int port) {
+	this->port = port;
+}
 
 // slots
 void ProxyApp::exit()

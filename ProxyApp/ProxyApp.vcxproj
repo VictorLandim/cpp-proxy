@@ -121,6 +121,7 @@
     </QtRcc>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="dump.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="proxyapp.cpp" />
     <ClCompile Include="proxyServer.cpp" />
@@ -135,6 +136,7 @@
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="dump.hpp" />
     <ClInclude Include="erorrs.hpp" />
     <ClInclude Include="proxyServer.hpp" />
     <ClInclude Include="request.hpp" />
