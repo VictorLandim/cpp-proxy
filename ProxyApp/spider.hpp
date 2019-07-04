@@ -25,6 +25,6 @@ private:
 public:
 	std::unordered_map<std::string, url_ref> url_map;
 	std::vector<std::string> ordered_urls;
-	Spider(std::string, std::string);
+	Spider(std::string, std::string filename = "~/Spider_output.txt");
 	std::vector<std::string> get_tree(std::string url, int profundidade);
 };

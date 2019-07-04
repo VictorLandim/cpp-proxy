@@ -1,0 +1,377 @@
+HTTP/1.1 200 OK
+Date: Thu, 04 Jul 2019 00:23:20 GMT
+Server: Apache/2.2.22
+X-Powered-By: PHP/5.4.38-0+deb7u1
+ETag: 1439805018
+Last-Modified: Mon, 17 Aug 2015 09:50:18 GMT
+Vary: Accept-Encoding
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html
+
+cd96
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Containers - C++ Reference</title>
+<link rel="canonical" href="http://www.cplusplus.com/reference/stl/">
+<link rel="shortcut icon" type="image/x-icon" href="D:/TR2/cpp-proxy/Dump/favicon.icoindex.html">
+<link rel="stylesheet" type="text/css" href="D:/TR2/cpp-proxy/Dump/v321/main.cssindex.html">
+<script src="/v321/main.js" type="text/javascript"></script>
+<script>
+  (function() {
+    var useSSL = 'https:' == document.location.protocol;
+    var src = (useSSL ? 'https:' : 'http:') +
+        '//www.googletagservices.com/tag/js/gpt.js';
+    document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+  })();
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/32882001/L', [728, 90], 'div-gpt-ad-1473193443042-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().enableSyncRendering();
+    googletag.enableServices();
+  });
+</script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="D:/TR2/cpp-proxy/Dump/index.html" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="D:/TR2/cpp-proxy/Dump/reference/index.html">Reference</a></li>
+<li class="here">Containers</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support">
+<div id='div-gpt-ad-1473193443042-0' style='height:90px; width:728px;'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1473193443042-0'); });
+</script>
+</div>
+</div>
+<div id="I_content">
+<div class="C_doc">
+<div id="I_type">library</div>
+<h1>Containers</h1>
+<div id="I_description">Standard Containers</div>
+A container is a holder object that stores a collection of other objects (its elements). They are implemented as class templates, which allows a great flexibility in the types supported as elements.<br>
+<br>
+The container manages the storage space for its elements and provides member functions to access them, either directly or through iterators (reference objects with similar properties to pointers).<br>
+<br>
+Containers replicate structures very commonly used in programming: dynamic arrays (<a href="D:/TR2/cpp-proxy/Dump/vectorindex.html">vector</a>), queues (<a href="D:/TR2/cpp-proxy/Dump/queueindex.html">queue</a>), stacks (<a href="D:/TR2/cpp-proxy/Dump/stackindex.html">stack</a>), heaps (<a href="D:/TR2/cpp-proxy/Dump/priority_queueindex.html">priority_queue</a>), linked lists (<a href="D:/TR2/cpp-proxy/Dump/listindex.html">list</a>), trees (<a href="D:/TR2/cpp-proxy/Dump/setindex.html">set</a>), associative arrays (<a href="D:/TR2/cpp-proxy/Dump/mapindex.html">map</a>)...<br>
+<br>
+Many containers have several member functions in common, and share functionalities. The decision of which type of container to use for a specific need does not generally depend only on the functionality offered by the container, but also on the efficiency of some of its members (complexity). This is especially true for sequence containers, which offer different trade-offs in complexity between inserting/removing elements and accessing them.<br>
+<br>
+<a href="D:/TR2/cpp-proxy/Dump/stackindex.html">stack</a>, <a href="D:/TR2/cpp-proxy/Dump/queueindex.html">queue</a> and <a href="D:/TR2/cpp-proxy/Dump/priority_queueindex.html">priority_queue</a> are implemented as <i>container adaptors</i>. Container adaptors are not full container classes, but classes that provide a specific interface relying on an object of one of the container classes (such as <a href="D:/TR2/cpp-proxy/Dump/dequeindex.html">deque</a> or <a href="D:/TR2/cpp-proxy/Dump/listindex.html">list</a>) to handle the elements. The underlying container is encapsulated in such a way that its elements are accessed by the members of the <i>container adaptor</i> independently of the underlying <i>container</i> class used.<br>
+<br>
+<h3>Container class templates</h3>
+<b>Sequence containers</b>:<br>
+<dl class="links+Ì‡Uvù"><dt><a href= "/reference/array/array/"><b>array <b class="C_cpp11" title="C++11 only"></b></b></a></dt><dd>Array class <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "/reference/vector/vector/"><b>vector</b></a></dt><dd>Vector <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "/reference/deque/deque/"><b>deque</b></a></dt><dd>Double ended queue <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "/reference/forward_list/forward_list/"><b>forward_list <b class="C_cpp11" title="C++11 only"></b></b></a></dt><dd>Forward list <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "/reference/list/list/"><b>list</b></a></dt><dd>List <span class="typ">(class template)</span></dd></dl>
+<br>
+<b>Container adaptors</b>:<br>
+<dl class="links"><dt><a href= "/reference/stack/stack/"><b>stack</b></a></dt><dd>LIFO stack <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "/reference/queue/queue/"><b>queue</b></a></dt><dd>FIFO queue <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "/reference/queue/priority_queue/"><b>priority_queue</b></a></dt><dd>Priority queue <span class="typ">(class template)</span></dd></dl>
+<br>
+<b>Associative containers</b>:<br>
+<dl class="links"><dt><a href= "/reference/set/set/"><b>set</b></a></dt><dd>Set <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "/reference/set/multiset/"><b>multiset</b></a></dt><dd>Multiple-key set <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "/reference/map/map/"><b>map</b></a></dt><dd>Map <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "/reference/map/multimap/"><b>multimap</b></a></dt><dd>Multiple-key map <span class="typ">(class template)</span></dd></dl>
+<br>
+<b>Unordered associative containers</b>:<br>
+<dl class="links"><dt><a href= "/reference/unordered_set/unordered_set/"><b>unordered_set <b class="C_cpp11" title="C++11 only"></b></b></a></dt><dd>Unordered Set <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "/reference/unordered_set/unordered_multiset/"><b>unordered_multiset <b class="C_cpp11" title="C++11 only"></b></b></a></dt><dd>Unordered Multiset <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "/reference/unordered_map/unordered_map/"><b>unordered_map <b class="C_cpp11" title="C++11 only"></b></b></a></dt><dd>Unordered Map <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "/reference/unordered_map/unordered_multimap/"><b>unordered_multimap <b class="C_cpp11" title="C++11 only"></b></b></a></dt><dd>Unordered Multimap <span class="typ">(class template)</span></dd></dl>
+<br>
+<b>Other</b>:<br>
+Two class templates share certain properties with containers, and are sometimes classified with them: <samp><a href="D:/TR2/cpp-proxy/Dump/bitsetindex.html">bitset</a></samp> and <samp><a href="D:/TR2/cpp-proxy/Dump/valarrayindex.html">valarray</a></samp>.<br>
+<br>
+<h3>Member map</h3>
+This is a comparison chart with the different member functions present on each of the different containers:<br>
+<br>
+<b>Legend</b>:<br>
+<table class="boxed containers">
+<tr><th class="cpp98">C++98</th><td class="cpp98">Available since C++98</td></tr>
+<tr><th class="cpp11">C++11</th><td class="cpp11">New in C++11</td></tr>
+</table>
+<br>
+<h4>Sequence containers</h4>
+<table class="boxed containers">
+<tr><td colspan="2">Headers</td><th class="cpp11"><tt><a href="D:/TR2/cpp-proxy/Dump/&lt;array&gt;index.html">&lt;array&gt;</a></tt></th><th class="cpp98"><tt><a href="D:/TR2/cpp-proxy/Dump/&lt;vector&gt;index.html">&lt;vector&gt;</a></tt></th><th class="cpp98"><tt><a href="D:/TR2/cpp-proxy/Dump/&lt;deque&gt;index.html">&lt;deque&gt;</a></tt></th><th class="cpp11"><tt><a href="D:/TR2/cpp-proxy/Dump/&lt;forward_list&gt;index.html">&lt;forward_list&gt;</a></tt></th><th class="cpp98"><tt><a href="D:/TR2/cpp-proxy/Dump/&lt;list&gt;index.html">&lt;list&gt;</a></tt></th></tr>
+<tr><td colspan="2">Members</td><th class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/arrayindex.html">array</a></th><th class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vectorindex.html">vector</a></th><th class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/dequeindex.html">deque</a></th><th class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_listindex.html">forward_list</a></th><th class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/listindex.html">list</a></th></tr>
+<tr><td rowspan="3"> </td><td><i>constructor</i></td><td class="cpp11"><i>implicit</i></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::vectorindex.html">vector</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::dequeindex.html">deque</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::forward_listindex.html">forward_list</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::listindex.html">list</a></td></tr>
+<tr><td><i>destructor</i></td><td class="cpp11"><i>implicit</i></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::~vectorindex.html">~vector</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::~dequeindex.html">~deque</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::~forward_listindex.html">~forward_list</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::~listindex.html">~list</a></td></tr>
+<tr><td><tt>operator=</tt></td><td class="cpp11"><i>implicit</i></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::operator=index.html">operator=</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::operator=index.html">operator=</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::operator=index.html">operator=</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::operator=index.html">operator=</a></td></tr>
+<tr><td rowspan="4">iterators</td><td><tt>begin</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/array::beginindex.html">begin</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::beginindex.html">begin</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::beginindex.html">begin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::beginindex.html">begin</a><br><a href="D:/TR2/cpp-proxy/Dump/forward_list::before_beginindex.html">before_begin</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::beginindex.html">begin</a></td></tr>
+<tr><td><tt>end</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/array::endindex.html">end</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::endindex.html">end</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::endindex.html">end</a></td><td class+Ì‡Uvù="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::endindex.html">end</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::endindex.html">end</a></td></tr>
+<tr><td><tt>rbegin</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/array::rbeginindex.html">rbegin</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::rbeginindex.html">rbegin</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::rbeginindex.html">rbegin</a></td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::rbeginindex.html">rbegin</a></td></tr>
+<tr><td><tt>rend</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/array::rendindex.html">rend</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::rendindex.html">rend</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::rendindex.html">rend</a></td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::rendindex.html">rend</a></td></tr>
+<tr><td rowspan="4">const iterators</td><td><tt>cbegin</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/array::cbeginindex.html">cbegin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/vector::cbeginindex.html">cbegin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/deque::cbeginindex.html">cbegin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::cbeginindex.html">cbegin</a><br><a href="D:/TR2/cpp-proxy/Dump/forward_list::cbefore_beginindex.html">cbefore_begin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/list::cbeginindex.html">cbegin</a></td></tr>
+<tr><td><tt>cend</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/array::cendindex.html">cend</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/vector::cendindex.html">cend</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/deque::cendindex.html">cend</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::cendindex.html">cend</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/list::cendindex.html">cend</a></td></tr>
+<tr><td><tt>crbegin</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/array::crbeginindex.html">crbegin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/vector::crbeginindex.html">crbegin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/deque::crbeginindex.html">crbegin</a></td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/list::crbeginindex.html">crbegin</a></td></tr>
+<tr><td><tt>crend</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/array::crendindex.html">crend</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/vector::crendindex.html">crend</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/deque::crendindex.html">crend</a></td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/list::crendindex.html">crend</a></td></tr>
+<tr><td rowspan="7">capacity</td><td><tt>size</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/array::sizeindex.html">size</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::sizeindex.html">size</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::sizeindex.html">size</a></td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::sizeindex.html">size</a></td></tr>
+<tr><td><tt>max_size</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/array::max_sizeindex.html">max_size</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::max_sizeindex.html">max_size</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::max_sizeindex.html">max_size</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::max_sizeindex.html">max_size</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::max_sizeindex.html">max_size</a></td></tr>
+<tr><td><tt>empty</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/array::emptyindex.html">empty</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::emptyindex.html">empty</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::emptyindex.html">empty</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::emptyindex.html">empty</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::emptyindex.html">empty</a></td></tr>
+<tr><td><tt>resize</tt></td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::resizeindex.html">resize</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::resizeindex.html">resize</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::resizeindex.html">resize</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::resizeindex.html">resize</a></td></tr>
+<tr><td><tt>shrink_to_fit</tt></td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/vector::shrink_to_fitindex.html">shrink_to_fit</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/deque::shrink_to_fitindex.html">shrink_to_fit</a></td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td><tt>capacity</tt></td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::capacityindex.html">capacity</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td><tt>reserve</tt></td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::reserveindex.html">reserve</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td rowspan="4">element access</td><td><tt>front</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/array::frontindex.html">front</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::frontindex.html">front</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::frontindex.html">front</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::frontindex.html">front</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::frontindex.html">front</a></td></tr>
+<tr><td><tt>back</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/array::backindex.html">back</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::backindex.html">back</a></td><td cl+Ì‡Uvùass="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::backindex.html">back</a></td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::backindex.html">back</a></td></tr>
+<tr><td><tt>operator[]</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/array::operator[]index.html">operator[]</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::operator[]index.html">operator[]</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::operator[]index.html">operator[]</a></td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td><tt>at</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/array::atindex.html">at</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::atindex.html">at</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::atindex.html">at</a></td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td rowspan="12">modifiers</td><td><tt>assign</tt></td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::assignindex.html">assign</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::assignindex.html">assign</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::assignindex.html">assign</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::assignindex.html">assign</a></td></tr>
+<tr><td><tt>emplace</tt></td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/vector::emplaceindex.html">emplace</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/deque::emplaceindex.html">emplace</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::emplace_afterindex.html">emplace_after</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/list::emplaceindex.html">emplace</a></td></tr>
+<tr><td><tt>insert</tt></td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::insertindex.html">insert</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::insertindex.html">insert</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::insert_afterindex.html">insert_after</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::insertindex.html">insert</a></td></tr>
+<tr><td><tt>erase</tt></td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::eraseindex.html">erase</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::eraseindex.html">erase</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::erase_afterindex.html">erase_after</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::eraseindex.html">erase</a></td></tr>
+<tr><td><tt>emplace_back</tt></td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/vector::emplace_backindex.html">emplace_back</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/deque::emplace_backindex.html">emplace_back</a></td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/list::emplace_backindex.html">emplace_back</a></td></tr>
+<tr><td><tt>push_back</tt></td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::push_backindex.html">push_back</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::push_backindex.html">push_back</a></td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::push_backindex.html">push_back</a></td></tr>
+<tr><td><tt>pop_back</tt></td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::pop_backindex.html">pop_back</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::pop_backindex.html">pop_back</a></td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::pop_backindex.html">pop_back</a></td></tr>
+<tr><td><tt>emplace_front</tt></td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/deque::emplace_frontindex.html">emplace_front</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::emplace_frontindex.html">emplace_front</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/list::emplace_frontindex.html">emplace_front</a></td></tr>
+<tr><td><tt>push_front</tt></td><td class="none"> </td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::push_frontindex.html">push_front</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::push_frontindex.html">push_front</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::push_frontindex.html">push_front</a></td></tr>
+<tr><td><tt>pop_front</tt></td><td class="none"> </td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::pop_frontindex.html">pop_front</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::pop_frontindex.html">pop_front</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::pop_frontindex.html">pop_front</a></td></tr>
+<tr><td><tt>clear</tt></td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::clearindex.html">clear</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::clearindex.html">clear</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::clearindex.html">clear</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::clearindex.html">clear</a></td></tr>
+<tr><td><tt>swap</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/array::swapindex.html">swap</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::swapindex.html">swap</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::swapindex.html">swap</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::swapindex.html">swap</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::swapindex.html">swap</a></td></tr>
+<tr><td rowspan="7">list operations</td><td><tt>splice</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::s+Ì‡Uvùplice_afterindex.html">splice_after</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::spliceindex.html">splice</a></td></tr>
+<tr><td><tt>remove</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::removeindex.html">remove</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::removeindex.html">remove</a></td></tr>
+<tr><td><tt>remove_if</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::remove_ifindex.html">remove_if</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::remove_ifindex.html">remove_if</a></td></tr>
+<tr><td><tt>unique</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::uniqueindex.html">unique</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::uniqueindex.html">unique</a></td></tr>
+<tr><td><tt>merge</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::mergeindex.html">merge</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::mergeindex.html">merge</a></td></tr>
+<tr><td><tt>sort</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::sortindex.html">sort</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::sortindex.html">sort</a></td></tr>
+<tr><td><tt>reverse</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::reverseindex.html">reverse</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::reverseindex.html">reverse</a></td></tr>
+<tr><td rowspan="2">observers</td><td><tt>get_allocator</tt></td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/vector::get_allocatorindex.html">get_allocator</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/deque::get_allocatorindex.html">get_allocator</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/forward_list::get_allocatorindex.html">get_allocator</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/list::get_allocatorindex.html">get_allocator</a></td></tr>
+<tr><td><tt>data</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/array::dataindex.html">data</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/vector::dataindex.html">data</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+</table>
+<br>
+<h4>Associative containers</h4>
+<table class="boxed containers">
+<tr><td colspan="2">Headers</td><th colspan="2"><tt><a href="D:/TR2/cpp-proxy/Dump/&lt;set&gt;index.html">&lt;set&gt;</a></tt></th><th colspan="2"><tt><a href="D:/TR2/cpp-proxy/Dump/&lt;map&gt;index.html">&lt;map&gt;</a></tt></th><th colspan="2"><tt><a href="D:/TR2/cpp-proxy/Dump/&lt;unordered_set&gt;index.html">&lt;unordered_set&gt;</a></tt></th><th colspan="2"><tt><a href="D:/TR2/cpp-proxy/Dump/&lt;unordered_map&gt;index.html">&lt;unordered_map&gt;</a></tt></th></tr>
+<tr><td colspan="2">Members</td><th><a href="D:/TR2/cpp-proxy/Dump/setindex.html">set</a></th><th><a href="D:/TR2/cpp-proxy/Dump/multisetindex.html">multiset</a></th><th><a href="D:/TR2/cpp-proxy/Dump/mapindex.html">map</a></th><th><a href="D:/TR2/cpp-proxy/Dump/multimapindex.html">multimap</a></th><th><a href="D:/TR2/cpp-proxy/Dump/unordered_setindex.html">unordered_set</a></th><th><a href="D:/TR2/cpp-proxy/Dump/unordered_multisetindex.html">unordered_multiset</a></th><th><a href="D:/TR2/cpp-proxy/Dump/unordered_mapindex.html">unordered_map</a></th><th><a href="D:/TR2/cpp-proxy/Dump/unordered_multimapindex.html">unordered_multimap</a></th></tr>
+<tr><td rowspan="3"> </td><td><i>constructor</i></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::setindex.html">set</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::multisetindex.html">multiset</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::mapindex.html">map</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::multimapindex.html">multimap</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::unordered_setindex.html">unordered_set</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::unordered_multisetindex.html">unordered_multiset</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::unordered_mapindex.html">unordered_map</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::unordered_multimapindex.html">unordered_multimap</a></td></tr>
+<tr><td><i>destructor</i></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::~setindex.html">~set</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::~multisetindex.html">~multiset</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::~mapindex.html">~map</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::~multimapindex.html">~multimap</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::~unordered_setindex.html">~unordered_set</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::~unordered_multisetindex.html">~unordered_multiset</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::~unordered_mapindex.html">~unordered_map</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::~unordered_multimapindex.html">~unordered_multimap</a></td></tr>
+<tr><td><i>assignment</i></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::operator=index.html">operator=</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::operator=index.html">operator=</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::operator=index.html">operator=</a></td><t+Ì‡Uvùd class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::operator=index.html">operator=</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::operator=index.html">operator=</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::operator=index.html">operator=</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::operator=index.html">operator=</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::operator=index.html">operator=</a></td></tr>
+<tr><td rowspan="4">iterators</td><td><tt>begin</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::beginindex.html">begin</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::beginindex.html">begin</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::beginindex.html">begin</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::beginindex.html">begin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::beginindex.html">begin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::beginindex.html">begin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::beginindex.html">begin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::beginindex.html">begin</a></td></tr>
+<tr><td><tt>end</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::endindex.html">end</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::endindex.html">end</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::endindex.html">end</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::endindex.html">end</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::endindex.html">end</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::endindex.html">end</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::endindex.html">end</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::endindex.html">end</a></td></tr>
+<tr><td><tt>rbegin</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::rbeginindex.html">rbegin</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::rbeginindex.html">rbegin</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::rbeginindex.html">rbegin</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::rbeginindex.html">rbegin</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td><tt>rend</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::rendindex.html">rend</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::rendindex.html">rend</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::rendindex.html">rend</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::rendindex.html">rend</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td rowspan="4">const iterators</td><td><tt>cbegin</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/set::cbeginindex.html">cbegin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/multiset::cbeginindex.html">cbegin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/map::cbeginindex.html">cbegin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/multimap::cbeginindex.html">cbegin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::cbeginindex.html">cbegin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::cbeginindex.html">cbegin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::cbeginindex.html">cbegin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::cbeginindex.html">cbegin</a></td></tr>
+<tr><td><tt>cend</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/set::cendindex.html">cend</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/multiset::cendindex.html">cend</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/map::cendindex.html">cend</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/multimap::cendindex.html">cend</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::cendindex.html">cend</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::cendindex.html">cend</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::cendindex.html">cend</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::cendindex.html">cend</a></td></tr>
+<tr><td><tt>crbegin</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/set::crbeginindex.html">crbegin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/multiset::crbeginindex.html">crbegin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/map::crbeginindex.html">crbegin</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/multimap::crbeginindex.html">crbegin</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td><tt>crend</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/set::crendindex.html">crend</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/multiset::crendindex.html">crend</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/map::crendindex.html">crend</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/multimap::crendindex.html">crend</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td rowspan="4">capacity</td><td><tt>size</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::sizeindex.html">size</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::sizeindex.html">size</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::sizeindex.html">size</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::sizeindex.html">size</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::sizeindex.html">size</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::sizeindex.html">size</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::sizeindex.html">size</+Ì‡Uvùa></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::sizeindex.html">size</a></td></tr>
+<tr><td><tt>max_size</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::max_sizeindex.html">max_size</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::max_sizeindex.html">max_size</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::max_sizeindex.html">max_size</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::max_sizeindex.html">max_size</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::max_sizeindex.html">max_size</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::max_sizeindex.html">max_size</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::max_sizeindex.html">max_size</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::max_sizeindex.html">max_size</a></td></tr>
+<tr><td><tt>empty</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::emptyindex.html">empty</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::emptyindex.html">empty</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::emptyindex.html">empty</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::emptyindex.html">empty</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::emptyindex.html">empty</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::emptyindex.html">empty</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::emptyindex.html">empty</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::emptyindex.html">empty</a></td></tr>
+<tr><td><tt>reserve</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::reserveindex.html">reserve</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::reserveindex.html">reserve</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::reserveindex.html">reserve</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::reserveindex.html">reserve</a></td></tr>
+<tr><td rowspan="2">element access</td><td><tt>at</tt></td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/map::atindex.html">at</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::atindex.html">at</a></td><td class="none"> </td></tr>
+<tr><td><tt>operator[]</tt></td><td class="none"> </td><td class="none"> </td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::operator[]index.html">operator[]</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::operator[]index.html">operator[]</a></td><td class="none"> </td></tr>
+<tr><td rowspan="6">modifiers</td><td><tt>emplace</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/set::emplaceindex.html">emplace</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/multiset::emplaceindex.html">emplace</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/map::emplaceindex.html">emplace</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/multimap::emplaceindex.html">emplace</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::emplaceindex.html">emplace</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::emplaceindex.html">emplace</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::emplaceindex.html">emplace</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::emplaceindex.html">emplace</a></td></tr>
+<tr><td><tt>emplace_hint</tt></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/set::emplace_hintindex.html">emplace_hint</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/multiset::emplace_hintindex.html">emplace_hint</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/map::emplace_hintindex.html">emplace_hint</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/multimap::emplace_hintindex.html">emplace_hint</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::emplace_hintindex.html">emplace_hint</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::emplace_hintindex.html">emplace_hint</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::emplace_hintindex.html">emplace_hint</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::emplace_hintindex.html">emplace_hint</a></td></tr>
+<tr><td><tt>insert</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::insertindex.html">insert</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::insertindex.html">insert</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::insertindex.html">insert</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::insertindex.html">insert</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::insertindex.html">insert</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::insertindex.html">insert</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::insertindex.html">insert</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::insertindex.html">insert</a></td></tr>
+<tr><td><tt>erase</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::eraseindex.html">erase</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::eraseindex.html">erase</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::eraseindex.html">erase</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::eraseindex.html">erase</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::eraseindex.html">erase</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::eraseindex.html">erase</a></td><td cl+Ì‡Uvùass="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::eraseindex.html">erase</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::eraseindex.html">erase</a></td></tr>
+<tr><td><tt>clear</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::clearindex.html">clear</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::clearindex.html">clear</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::clearindex.html">clear</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::clearindex.html">clear</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::clearindex.html">clear</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::clearindex.html">clear</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::clearindex.html">clear</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::clearindex.html">clear</a></td></tr>
+<tr><td><tt>swap</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::swapindex.html">swap</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::swapindex.html">swap</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::swapindex.html">swap</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::swapindex.html">swap</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::swapindex.html">swap</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::swapindex.html">swap</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::swapindex.html">swap</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::swapindex.html">swap</a></td></tr>
+<tr><td rowspan="5">operations</td><td><tt>count</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::countindex.html">count</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::countindex.html">count</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::countindex.html">count</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::countindex.html">count</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::countindex.html">count</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::countindex.html">count</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::countindex.html">count</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::countindex.html">count</a></td></tr>
+<tr><td><tt>find</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::findindex.html">find</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::findindex.html">find</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::findindex.html">find</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::findindex.html">find</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::findindex.html">find</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::findindex.html">find</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::findindex.html">find</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::findindex.html">find</a></td></tr>
+<tr><td><tt>equal_range</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::equal_rangeindex.html">equal_range</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::equal_rangeindex.html">equal_range</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::equal_rangeindex.html">equal_range</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::equal_rangeindex.html">equal_range</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::equal_rangeindex.html">equal_range</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::equal_rangeindex.html">equal_range</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::equal_rangeindex.html">equal_range</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::equal_rangeindex.html">equal_range</a></td></tr>
+<tr><td><tt>lower_bound</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::lower_boundindex.html">lower_bound</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::lower_boundindex.html">lower_bound</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::lower_boundindex.html">lower_bound</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::lower_boundindex.html">lower_bound</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td><tt>upper_bound</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::upper_boundindex.html">upper_bound</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::upper_boundindex.html">upper_bound</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::upper_boundindex.html">upper_bound</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::upper_boundindex.html">upper_bound</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td rowspan="5">observers</td><td><tt>get_allocator</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::get_allocatorindex.html">get_allocator</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::get_allocatorindex.html">get_allocator</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::get_allocatorindex.html">get_allocator</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::get_allocatorindex.html">get_allocator</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::get_allocatorindex.html">get_allocator</a+Ì‡Uvù></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::get_allocatorindex.html">get_allocator</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::get_allocatorindex.html">get_allocator</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::get_allocatorindex.html">get_allocator</a></td></tr>
+<tr><td><tt>key_comp</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::key_compindex.html">key_comp</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::key_compindex.html">key_comp</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::key_compindex.html">key_comp</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::key_compindex.html">key_comp</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td><tt>value_comp</tt></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/set::value_compindex.html">value_comp</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multiset::value_compindex.html">value_comp</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/map::value_compindex.html">value_comp</a></td><td class="cpp98"><a href="D:/TR2/cpp-proxy/Dump/multimap::value_compindex.html">value_comp</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td><tt>key_eq</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::key_eqindex.html">key_eq</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::key_eqindex.html">key_eq</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::key_eqindex.html">key_eq</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::key_eqindex.html">key_eq</a></td></tr>
+<tr><td><tt>hash_function</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::hash_functionindex.html">hash_function</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::hash_functionindex.html">hash_function</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::hash_functionindex.html">hash_function</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::hash_functionindex.html">hash_function</a></td></tr>
+<tr><td rowspan="4">buckets</td><td><tt>bucket</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::bucketindex.html">bucket</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::bucketindex.html">bucket</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::bucketindex.html">bucket</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::bucketindex.html">bucket</a></td></tr>
+<tr><td><tt>bucket_count</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::bucket_countindex.html">bucket_count</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::bucket_countindex.html">bucket_count</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::bucket_countindex.html">bucket_count</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::bucket_countindex.html">bucket_count</a></td></tr>
+<tr><td><tt>bucket_size</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::bucket_sizeindex.html">bucket_size</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::bucket_sizeindex.html">bucket_size</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::bucket_sizeindex.html">bucket_size</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::bucket_sizeindex.html">bucket_size</a></td></tr>
+<tr><td><tt>max_bucket_count</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::max_bucket_countindex.html">max_bucket_count</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::max_bucket_countindex.html">max_bucket_count</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::max_bucket_countindex.html">max_bucket_count</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::max_bucket_countindex.html">max_bucket_count</a></td></tr>
+<tr><td rowspan="3">hash policy</td><td><tt>rehash</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::rehashindex.html">rehash</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::rehashindex.html">rehash</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::rehashindex.html">rehash</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::rehashindex.html">rehash</a></td></tr>
+<tr><td><tt>load_factor</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::load_factorindex.html">load_factor</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::load_factorindex.html">load_factor</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::load_factorindex.html">load_factor</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::load_factorindex.html">load_factor</a></td></tr>
+<tr><td><tt>max_load_factor</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_set::max_load_factorindex.html">max_load_factor</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multiset::max_load_factorindex.html">max_load_factor</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_map::max_load_factorindex.html">max_load_factor</a></td><td class="cpp11"><a href="D:/TR2/cpp-proxy/Dump/unordered_multimap::max_load_factorindex.html">max_load_factor</a></td></tr>
+</table></div><div id="CH_bb"></div></div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- leaderboard -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-1444228343479937"
+     data-ad-slot="9701143201"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="D:/TR2/cpp-proxy/Dump/index.html">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="D:/TR2/cpp-proxy/Dump/info/index.html">Information</a></li>
+<li class="folder doc"><a href="D:/TR2/cpp-proxy/Dump/doc/index.html">Tutorials</a></li>
+<li class="folder selected reference"><a href="D:/TR2/cpp-proxy/Dump/reference/index.html">Reference</a></li>
+<li class="folder articles"><a href="D:/TR2/cpp-proxy/Dump/articles/index.html">Articles</a></li>
+<li class="folder forum"><a href="D:/TR2/cpp-proxy/Dump/forum/index.html">Forum</a></li>
+</ul>
+</div>
+<div class="C_BoxLabels C_BoxSort sect" id="reference_box">
+<h3><b><a href="D:/TR2/cpp-proxy/Dump/reference/index.html">Reference</a></b></h3>
+<ul>
+<li class="C_Collapsable collapsed"><h4><a href="D:/TR2/cpp-proxy/Dump/reference/clibrary/index.html">C library:</a></h4><ul>
+<li class="c90 c99 arm cp+Ì‡Uvùp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/cassert/index.html"><span>&lt;cassert&gt; (assert.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/cctype/index.html"><span>&lt;cctype&gt; (ctype.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/cerrno/index.html"><span>&lt;cerrno&gt; (errno.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/cfenv/index.html"><span>&lt;cfenv&gt; (fenv.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/cfloat/index.html"><span>&lt;cfloat&gt; (float.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/cinttypes/index.html"><span>&lt;cinttypes&gt; (inttypes.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/ciso646/index.html"><span>&lt;ciso646&gt; (iso646.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/climits/index.html"><span>&lt;climits&gt; (limits.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/clocale/index.html"><span>&lt;clocale&gt; (locale.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/cmath/index.html"><span>&lt;cmath&gt; (math.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/csetjmp/index.html"><span>&lt;csetjmp&gt; (setjmp.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/csignal/index.html"><span>&lt;csignal&gt; (signal.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/cstdarg/index.html"><span>&lt;cstdarg&gt; (stdarg.h)</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/cstdbool/index.html"><span>&lt;cstdbool&gt; (stdbool.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/cstddef/index.html"><span>&lt;cstddef&gt; (stddef.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/cstdint/index.html"><span>&lt;cstdint&gt; (stdint.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/cstdio/index.html"><span>&lt;cstdio&gt; (stdio.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/cstdlib/index.html"><span>&lt;cstdlib&gt; (stdlib.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/cstring/index.html"><span>&lt;cstring&gt; (string.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/ctgmath/index.html"><span>&lt;ctgmath&gt; (tgmath.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/ctime/index.html"><span>&lt;ctime&gt; (time.h)</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/cuchar/index.html"><span>&lt;cuchar&gt; (uchar.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/cwchar/index.html"><span>&lt;cwchar&gt; (wchar.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/cwctype/index.html"><span>&lt;cwctype&gt; (wctype.h)</span></a></li>
+</ul></li>
+<li class="C_Collapsable"><h4 class="selected"><a href="D:/TR2/cpp-proxy/Dump/reference/stl/index.html">Containers:</a></h4><ul>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/array/index.html"><span>&lt;array&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/deque/index.html"><span>&lt;deque&gt;</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/forward_list/index.html"><span>&lt;forward_list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/list/index.html"><span>&lt;list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/map/index.html"><span>&lt;map&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/queue/index.html"><span>&lt;queue&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/set/index.html"><span>&lt;set&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/stack/index.html"><span>&lt;stack&gt;</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/unordered_map/index.html"><span>&lt;unordered_map&gt;</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/unordered_set/index.html"><span>&lt;unordered_set&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/vector/index.html"><span>&lt;vector&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="D:/TR2/cpp-proxy/Dump/reference/iolibrary/index.html">Input/Output:</a></h4><ul>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/fstream/index.html"><span>&lt;fstream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/iomanip/index.html"><span>&lt;iomanip&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/ios/index.html"><span>&lt;ios&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/iosfwd/index.html"><span>&lt;iosfwd&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/iostream/index.html"><span>&lt;iostream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/istream/index.html"><span>&lt;istream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/ostream/index.html"><span>&lt;ostream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/sstream/index.html"><span>&lt;sstream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/streambuf/index.html"><span>&lt;streambuf&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="D:/TR2/cpp-proxy/Dump/reference/multithreading/index.html">Multi-threading:</a></h4><ul>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/atomic/index.html"><span>&lt;atomic&gt;</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/condition_variable/index.html"><span>&lt;condition_variable&gt;</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/future/index.html"><span>&lt;future&gt;</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/mutex/index.html"><span>&lt;mutex&gt;</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/thread/index.html"><span>&lt;thread&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="D:/TR2/cpp-proxy/Dump/reference/std/index.html">Other:</a></h4><ul>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/algorithm/index.html"><span>&lt;algorithm&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/bitset/index.html"><span>&lt;bitset&gt;</span></a></li>+Ì‡Uvù
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/chrono/index.html"><span>&lt;chrono&gt;</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/codecvt/index.html"><span>&lt;codecvt&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/complex/index.html"><span>&lt;complex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/exception/index.html"><span>&lt;exception&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/functional/index.html"><span>&lt;functional&gt;</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/initializer_list/index.html"><span>&lt;initializer_list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/iterator/index.html"><span>&lt;iterator&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/limits/index.html"><span>&lt;limits&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/locale/index.html"><span>&lt;locale&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/memory/index.html"><span>&lt;memory&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/new/index.html"><span>&lt;new&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/numeric/index.html"><span>&lt;numeric&gt;</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/random/index.html"><span>&lt;random&gt;</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/ratio/index.html"><span>&lt;ratio&gt;</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/regex/index.html"><span>&lt;regex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/stdexcept/index.html"><span>&lt;stdexcept&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/string/index.html"><span>&lt;string&gt;</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/system_error/index.html"><span>&lt;system_error&gt;</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/tuple/index.html"><span>&lt;tuple&gt;</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/typeindex/index.html"><span>&lt;typeindex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/typeinfo/index.html"><span>&lt;typeinfo&gt;</span></a></li>
+<li class="cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/type_traits/index.html"><span>&lt;type_traits&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/utility/index.html"><span>&lt;utility&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="D:/TR2/cpp-proxy/Dump/reference/valarray/index.html"><span>&lt;valarray&gt;</span></a></li>
+</ul></li>
+</ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- leftbutton -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:234px;height:60px"
+     data-ad-client="ca-pub-1444228343479937"
+     data-ad-slot="3817422056"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>			
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="D:/TR2/cpp-proxy/Dump/index.html">Home page</a> | <a href="D:/TR2/cpp-proxy/Dump/privacy.doindex.html">Privacy policy</a><br>&copy; cplusplus.com, 2000-2019 - All rights reserved - <i>v3.1</i><br><a href="D:/TR2/cpp-proxy/Dump/contact.do?referrer=www.cplusplus.com%2Freference%2Fstl%2Findex.html">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+ onSession ( function(us) {
+		el=document.getElementById('CH_bb'); el.innerHTML='';
+		if (us.auth(4096)) {
+			el.appendChild(btn('New Page','New Page','new','/reference/new.cgi?a=stl'));
+			el.appendChild(btn('Edit Page','Edit Page','edit','/reference/edit.cgi?a=stl'));
+			el.appendChild(btn('Delete Page','Delete Page','delete','javascript:docdel()'));
+		}
+	});
+	function docdel() { if (confirm('WARNING: You are about to delete this page. Confirm?')) window.location='/reference/delete.cgi?a=stl'; }
+	ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+<script>
+(function(){
+  // mini cookie-consent code (c) Juan Soulie, 2016
+  var s ='consent=cookie';
+  var e = document.createElement('div');
+  e.innerHTML = '<div style="background:#eed;padding:10px;margin:0;text-align:center;border-bottom:1px solid #446"><span style="color:#210;font-weight:bold">This website uses cookies. By continuing, you give permission to deploy cookies, as detailed in our <a href="D:/TR2/cpp-proxy/Dump/privacy.doindex.html">privacy policy</a>.</span> <span style="margin-left:10px;border-radius:5px;padding:1px 10px;background:#bcd;border:1px solid #789;cursor:pointer">ok</span></div>';
+  if (document.cookie.indexOf(s)!==-1) return;
+  var b = document.getElementsByTagName('body')[0];
+  b.insertBefore(e,b.firstChild);
+  var x = function() { document.cookie = s+'; path=/'; e.parentNode.removeChild(e); };
+  e.addEventListener('click',x);
+  document.addEventListener('scroll',x);
+})();
+</script>
+
+</body>
+</html>
+0
+

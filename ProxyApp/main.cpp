@@ -2,6 +2,7 @@
 #include <QtWidgets/QApplication>
 #include "proxyapp.h"
 //#include "spider.hpp"
+//#include "dump.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -30,6 +31,11 @@ int main(int argc, char *argv[])
 	/*
 	Spider * spider = new Spider("www.pudim.com.br", "../Spider_output.txt");
 	spider->get_tree("/", 5);
+	while (TRUE);
+	return 0;
+	
+	Dump * dump = new Dump("www.cplusplus.com", "D:/TR2/cpp-proxy/Dump");
+	dump->dump_tree("/", 1);
 	while (TRUE);
 	return 0;
 	*/
