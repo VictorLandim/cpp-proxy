@@ -11,6 +11,8 @@ class ProxyApp : public QMainWindow
 public:
 	ProxyApp(QWidget *parent = Q_NULLPTR);
 	ServerThread* serverThread;
+	void setPort(int);
+	int port = 8228;
 
 private:
 	Ui::ProxyAppClass ui;

@@ -1,6 +1,6 @@
 #include "serverThread.hpp"
 
-ServerThread::ServerThread(QObject* parent) : QThread(parent)
+ServerThread::ServerThread(QObject* parent, int port) : QThread(parent)
 {
 	proxyServer = new ProxyServer();
 }
