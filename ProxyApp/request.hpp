@@ -9,6 +9,7 @@
 class Request {
 
 private:
+	void clear();
 	std::vector<std::string> splitString(std::string, std::string);
 
 public:

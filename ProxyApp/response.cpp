@@ -5,67 +5,80 @@ Response::Response()
 {
 }
 
-
 // ////////////// TODO!!!!!!!!!!
-int Response::parse(std::string responseString)
+void Response::parse(std::string responseString)
 {
 	// ORGANIZE
 	std::map<std::string, std::string> response;
-	std::vector<std::string> splittedRequest = Utils::splitString(responseString, "\r\n");
-	firstLine = splittedRequest[0];
 
-	for (const std::string line : splittedRequest)
+	std::vector<std::string> splittedResponse = Utils::splitString(responseString, "\r\n");
+
+	// find element that is ""
+	int headerSplitIndex = splittedResponse.size();
+
+	for (int i = 0; i < splittedResponse.size(); i++)
 	{
-		for (std::size_t i = 0; i < line.size(); ++i)
+		if (splittedResponse[i] == "")
 		{
-			if (line[i] == ':')
-			{
-				std::string key = line.substr(0, i);
+			headerSplitIndex = i;
+			break;
+		}
+	}
 
-				// remove proxy-connection header
-				if (key != "Proxy-Connection")
-				{
-					std::string value = line.substr(i + 2, line.size() - 1);
-					std::pair<std::string, std::string> element(key, value);
-					response.insert(element);
-					break;
-				}
+	for (int i = 0; i < headerSplitIndex; i++)
+	{
+		if (i == 0)
+		{
+			this->firstLine = splittedResponse[i];
+		}
+		else
+		{
+			auto j = splittedResponse[i].find(":");
+
+			if (j != std::string::npos)
+			{
+				std::string key = splittedResponse[i].substr(0, j);
+
+				std::string value = splittedResponse[i].substr(j + 2, splittedResponse[i].size() - 1);
+				std::pair<std::string, std::string> element(key, value);
+				response.insert(element);
 			}
 		}
 	}
 
-	// necessary!!!
-	std::pair<std::string, std::string> element("Connection", "close");
-	response.insert(element);
+	std::string body;
+
+	for (int i = headerSplitIndex + 1; i < splittedResponse.size(); i++)
+	{
+		body += splittedResponse[i] + "\r\n";
+	}
 
 	this->headers = response;
+	this->body = body;
+}
 
-	return 0;
+void Response::clear()
+{
+	firstLine.clear();
+	headers.clear();
+	body.clear();
 }
 
 std::string Response::toString()
 {
 	std::string response;
+
 	response.append(firstLine + "\r\n");
 
-	if (headers.size() > 0)
+	for (auto itr = headers.begin(); itr != headers.end(); ++itr)
 	{
-		for (auto itr = headers.begin(); itr != headers.end(); ++itr)
-		{
-			std::string line = itr->first + ": " + itr->second + "\r\n";
-			response.append(line);
-		}
-
-		response.append("\r\n");
-
-		response.append(body);
-
-		response.append("\r\n");
-
-		return response;
+		std::string line = itr->first + ": " + itr->second + "\r\n";
+		response.append(line);
 	}
-	else
-	{
-		return NULL;
-	}
+
+	response.append("\r\n");
+
+	response.append(body);
+
+	return response;
 }

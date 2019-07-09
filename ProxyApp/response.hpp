@@ -9,7 +9,8 @@ class Response {
 
 public:
 	Response();
-	int parse(std::string);
+	void parse(std::string);
+	void clear();
 
 	std::string firstLine;
 	std::map<std::string, std::string> headers;

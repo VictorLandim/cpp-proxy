@@ -1,58 +1,73 @@
 #include "serverThread.hpp"
-#include "proxyServer.hpp"
-#include "request.hpp"
 
 ServerThread::ServerThread(QObject* parent) : QThread(parent)
 {
+	proxyServer = new ProxyServer();
 }
 
 void ServerThread::run()
 {
-	ProxyServer* proxyServer = new ProxyServer(8080);
-	std::cout << "> Proxy server listening to connections." << std::endl;
-	emit statusChanged("Proxy server is listening to connections.");
-
 	forever
 	{
 		if (shouldListen)
 		{
-			proxyServer->setupListen();
-			proxyServer->acceptConnection(); // waits for connection
+			try {
+				proxyServer->setupListen();
+				proxyServer->acceptConnection(); // blocked: waits for connection
 
-			printClientRequest(proxyServer->request->toString());
+				printClientRequest(proxyServer->request->toString());
 
-			emit requestReceived(QString::fromStdString(proxyServer->request->toString()));
+				emit requestReceived(QString::fromStdString(proxyServer->request->toString()));
 
-			shouldListen = false;
+				shouldListen = false;
+			}
+			catch (std::exception& e) 
+			{
+				proxyServer->closeClientSocket();
+				std::cout << "# Error: " << e.what() << std::endl;
+			}
 		}
 
 		if (shouldRequestToServer)
 		{
+			try {
+				std::cout << "> Requesting " << proxyServer->request->path << "." << std::endl;
 
-			std::cout << "> Requesting " << proxyServer->request->path << "." << std::endl;
+				proxyServer->makeRemoteRequest(finalRequest, proxyServer->request->host);
 
-			proxyServer->makeRemoteRequest(proxyServer->request->toString(), proxyServer->request->host);
+				printHostResponse(proxyServer->response->toString());
 
-			printHostResponse(proxyServer->response->body);
+				emit responseReceived(QString::fromStdString(proxyServer->response->toString()));
 
-			emit responseReceived(QString::fromStdString(proxyServer->response->body));
-
-			shouldRequestToServer = false;
+				shouldRequestToServer = false;
+			}
+			catch (std::exception& e)
+			{
+				std::cout << "# Error: " << e.what() << std::endl;
+				shouldRequestToServer = false;
+			}
 		}
 		
 		if (shouldRespondToClient)
 		{
+			try {
 
-			proxyServer->respond(proxyServer->response->body);
-			proxyServer->closeClientSocket();
-			
-			shouldRespondToClient = false;
-			shouldListen = true;
+				proxyServer->respond(finalResponse);
+				proxyServer->closeClientSocket();
+
+				shouldRespondToClient = false;
+				shouldListen = true;
+			}
+			catch (std::exception& e)
+			{
+				std::cout << "# Error: " << e.what() << std::endl;
+				shouldRespondToClient = false;
+			}
 		}
 
-		std::cout << "----------------------------------------" << std::endl;
-
-		msleep(1000);
+		//std::cout << ".\r" << std::endl;
+		//std::cout << "----------------------------------------" << std::endl;
+		//msleep(1000);
 	}
 
 	delete proxyServer;
@@ -62,8 +77,7 @@ void ServerThread::printClientRequest(std::string request)
 {
 	std::cout << "========== PARSED BROWSER REQUEST START ==========" << std::endl <<
 		request << std::endl <<
-		"========== BROWSER REQUEST END ==========" << std::endl;
-
+		"==========  PARSED BROWSER REQUEST END ==========" << std::endl;
 }
 
 void ServerThread::printHostResponse(std::string response)
@@ -75,5 +89,24 @@ void ServerThread::printHostResponse(std::string response)
 
 // slots
 void ServerThread::setShouldListen() { shouldListen = true; }
-void ServerThread::setShouldRequestToServer() { shouldRequestToServer = true; }
-void ServerThread::setShouldRespondToClient() { shouldRespondToClient = true; }
+
+void ServerThread::setListeningPort(int port)
+{
+	proxyServer->init(port);
+	std::string message = "Proxy server is listening on port " + std::to_string(proxyServer->port) + ".";
+	std::cout << "> " << message << std::endl;
+	emit statusChanged(QString::fromStdString(message));
+
+}
+
+void ServerThread::setRequest(QString request)
+{
+	finalRequest = request.toStdString();
+	shouldRequestToServer = true;
+}
+
+void ServerThread::setResponse(QString response)
+{
+	finalResponse = response.toStdString();
+	shouldRespondToClient = true;
+}

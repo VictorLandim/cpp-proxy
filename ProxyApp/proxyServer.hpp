@@ -12,23 +12,24 @@ class ProxyServer{
 private:
 	WSADATA wsData;
 
-	int port;
-
 	SOCKET serverSocket;
 	sockaddr_in serverSocketHint;
 
 	SOCKET clientSocket;
 	sockaddr_in clientSocketHint;
 
-	void init();
-	void cleanUp();
-
 public:
+	int port;
+
 	Request* request;
 	Response* response;
 
-	ProxyServer(int port);
+	ProxyServer();
 	~ProxyServer();
+
+	void init(int port);
+
+	void cleanUp();
 
 	void setupListen();
 	void acceptConnection();

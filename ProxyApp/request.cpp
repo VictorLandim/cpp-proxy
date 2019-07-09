@@ -4,6 +4,82 @@ Request::Request()
 {
 }
 
+void Request::parse(std::string requestString)
+{
+	clear();
+	
+	std::vector<std::string> splittedRequest = splitString(requestString, "\r\n");
+
+	std::map<std::string, std::string> response;
+
+	for (auto line = 0; line < splittedRequest.size(); line++)
+	{
+		// if is the FIRST line, grab method, host and path
+		if (line == 0)
+		{
+			if (splittedRequest[line].find("GET") == std::string::npos)
+			{
+				std::cout << splittedRequest[line] << std::endl;
+				throw std::exception("Request dropped. Unsupported HTTP method, only GET is allowed.");
+			}
+
+			if (splittedRequest[line].find("https") != std::string::npos)
+			{
+				std::cout << splittedRequest[line] << std::endl;
+				throw std::exception("Request dropped. HTTPS requests are not supported by this proxy.");
+			}
+
+			std::string firstLine = splittedRequest[line];
+
+			// requestString will always start with:
+			// G E T _ h t t p : / / g o o g l e . c o m / h o m e HTTP/1.X
+			// 0 1 2 3 4 5 6 7 8 9 1 2 3
+
+			std::string::size_type hostStart = 4;
+
+			// remove protocol (http://)
+			firstLine.erase(hostStart, 7);
+
+			std::string::size_type hostEnd = firstLine.find('/', hostStart);
+
+			// TODO: add WWW later!
+			std::string host = firstLine.substr(hostStart, hostEnd - hostStart);
+
+			firstLine.erase(hostStart, hostEnd - hostStart);
+
+			std::string::size_type pathEnd = firstLine.find(' ', hostStart);
+			std::string path = firstLine.substr(hostStart, pathEnd - hostStart);
+
+			this->content = firstLine;
+			this->firstLine = firstLine;
+			this->host = host;
+			this->path = path;
+		}
+		else
+		{
+			auto i = splittedRequest[line].find(":");
+
+			if (i != std::string::npos)
+			{
+				std::string key = splittedRequest[line].substr(0, i);
+
+				std::string value = splittedRequest[line].substr(i + 2, splittedRequest[line].size() - 1);
+				std::pair<std::string, std::string> element(key, value);
+				response.insert(element);
+			}
+		}
+	}
+
+	// necessary!!!
+	response.erase("Range");
+	response.erase("If-Range");
+	response["Connection"] = "close";
+	response["Proxy-Connection"] = "close";
+	response["Accept-Encoding"] = "identity";
+
+	this->headers = response;
+}
+
 std::vector<std::string> Request::splitString(std::string input, std::string delim)
 {
 	std::vector<std::string> strings;
@@ -22,80 +98,6 @@ std::vector<std::string> Request::splitString(std::string input, std::string del
 	return strings;
 }
 
-void Request::parse(std::string requestString)
-{
-	// THIS IS WRONG
-
-	if (requestString.find("GET") == std::string::npos)
-	{
-		std::cout << "# Unsupported HTTP method, only GET is allowed." << std::endl;
-		return;
-	}
-
-	if (requestString.find("https") != std::string::npos)
-	{
-		std::cout << requestString << std::endl;
-		system("pause");
-		std::cout << "# HTTPS requests are not supported by this proxy." << std::endl;
-		return;
-	}
-
-	// requestString will always start with:
-	// G E T _ h t t p : / / google.com HTTP/1.X
-	// 0 1 2 3 4 5 6 7 8
-
-	std::string::size_type hostStart = 4;
-
-	// remove protocol (http://)
-	requestString.erase(hostStart, 7);
-
-	std::string::size_type hostEnd = requestString.find('/', hostStart);
-
-
-	// TODO: add WWW later!
-	std::string host = requestString.substr(hostStart, hostEnd - hostStart);
-
-	requestString.erase(hostStart, hostEnd - hostStart);
-
-	std::string::size_type pathEnd = requestString.find(' ', hostStart);
-	std::string path = requestString.substr(hostStart, pathEnd - hostStart);
-
-	this->content = requestString;
-	this->host = host;
-	this->path = path;
-
-
-	// ORGANIZE
-	std::map<std::string, std::string> response;
-	std::vector<std::string> splittedRequest = splitString(requestString, "\r\n");
-	firstLine = splittedRequest[0];
-
-	for (const std::string line : splittedRequest)
-	{
-		for (std::size_t i = 0; i < line.size(); ++i)
-		{
-			if (line[i] == ':')
-			{
-				std::string key = line.substr(0, i);
-				
-				// remove proxy-connection header
-				if (key != "Proxy-Connection")
-				{
-					std::string value = line.substr(i + 2, line.size() - 1);
-					std::pair<std::string, std::string> element(key, value);
-					response.insert(element);
-					break;
-				}
-			}
-		}
-	}
-
-	// necessary!!!
-	std::pair<std::string, std::string> element("Connection", "close");
-	response.insert(element);
-
-	this->headers = response;
-}
 
 std::string Request::toString()
 {
@@ -118,4 +120,13 @@ std::string Request::toString()
 	{
 		return NULL;
 	}
+}
+
+void Request::clear()
+{
+	host.clear();
+	path.clear();
+	content.clear();
+	firstLine.clear();
+	headers.clear();
 }

@@ -41,12 +41,13 @@ void ProxyApp::exit()
 
 void ProxyApp::setStatus(QString status)
 {
+	ui.statusLabel->clear();
 	ui.statusLabel->setText(status);
 }
 
-void ProxyApp::setAlert(std::string message)
+void ProxyApp::setAlert(QString message)
 {
-	QMessageBox::information(this, tr(message.c_str()), tr("OK"));
+	QMessageBox::information(this, tr("Error"), tr(message.toStdString().c_str()));
 }
 
 void ProxyApp::setRequest(QString request)

@@ -17,7 +17,7 @@ private:
 
 private slots:
 	void exit();
-	void setAlert(std::string);
+	void setAlert(QString);
 	void setStatus(QString);
 	void setRequest(QString);
 	void setResponse(QString);

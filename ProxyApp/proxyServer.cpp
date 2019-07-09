@@ -1,26 +1,30 @@
 #include "proxyServer.hpp"
 
-ProxyServer::ProxyServer(int port)
+ProxyServer::ProxyServer()
 {
-	this->port = port;
-	request = new Request();
-	response = new Response();
-
-	init();
-}
-
-void ProxyServer::init()
-{
-	std::cout << "> Proxy server starting." << std::endl;
+	// default port;
+	//init(8080);
 
 	WORD ver = MAKEWORD(2, 2);
-	
+
 	int wsOk = WSAStartup(ver, &wsData);
 	if (wsOk != 0)
 	{
-		std::cerr << "# Can't Initialize winsock." << std::endl;
-		return;
+		throw std::exception("Can't Initialize winsock.");
 	}
+
+	std::cout << "> Winsock initialized." << std::endl;
+}
+
+void ProxyServer::init(int port)
+{
+	// reset sockets 
+	closesocket(clientSocket);
+	closesocket(serverSocket);
+
+	this->port = port;
+	request = new Request();
+	response = new Response();
 }
 
 void ProxyServer::setupListen()
@@ -29,8 +33,7 @@ void ProxyServer::setupListen()
 	serverSocket = socket(AF_INET, SOCK_STREAM, 0);
 	if (serverSocket == INVALID_SOCKET)
 	{
-		std::cerr << "# Can't create server socket." << std::endl;
-		return;
+		throw std::exception("Can't create server socket.");
 	}
 
 	// Bind the ip address and port to a socket
@@ -86,8 +89,7 @@ void ProxyServer::acceptConnection()
 
 		if (bytesReceived == SOCKET_ERROR)
 		{
-			std::cerr << "# Error in recv()." << std::endl;
-			break;
+			throw std::exception("Error in recv().");
 		}
 
 		if (bytesReceived == 0)
@@ -99,6 +101,7 @@ void ProxyServer::acceptConnection()
 		clientRequest.append(buffer);
 
 		// TODO: IMPROVE
+
 		request->parse(clientRequest);
 		break;
 	}
@@ -128,8 +131,7 @@ void ProxyServer::makeRemoteRequest(std::string request, std::string host)
 	DWORD getAddrRes = getaddrinfo(host.c_str(), NULL, &hints, &targetAdressInfo);
 	if (getAddrRes != 0 || targetAdressInfo == NULL)
 	{
-		std::cout << "# Could not resolve the host name." << std::endl;
-		return;
+		throw std::exception("Could not resolve the host name.");
 	}
 
 	// Create the Socket Address Informations, using IPv4
@@ -147,17 +149,16 @@ void ProxyServer::makeRemoteRequest(std::string request, std::string host)
 	SOCKET webSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (webSocket == INVALID_SOCKET)
 	{
-		std::cout << "# Creation of the socket failed." << std::endl;
-		return;
+		throw std::exception("Could not create socket to host.");
 	}
 
 	// Establishing a connection to the web Socket
 	std::cout << "> Connecting to " << host << "." << std::endl;
 	if (connect(webSocket, (SOCKADDR*)& sockAddr, sizeof(sockAddr)) != 0)
 	{
-		std::cout << "# Could not connect to " << host << "." << std::endl;
 		closesocket(webSocket);
-		return;
+		std::string errorMessage = "Could not connect to " + host + ".";
+		throw std::exception(errorMessage.c_str());
 	}
 
 	std::cout << "> Connection established." << std::endl;
@@ -166,9 +167,8 @@ void ProxyServer::makeRemoteRequest(std::string request, std::string host)
 	int sentBytes = send(webSocket, request.c_str(), strlen(request.c_str()), 0);
 	if (sentBytes < strlen(request.c_str()) || sentBytes == SOCKET_ERROR)
 	{
-		std::cout << "# Could not send the request to the server" << std::endl;
 		closesocket(webSocket);
-		return;
+		throw std::exception("Could not send the request to the server.");
 	}
 
 	char buffer[4096];
@@ -182,8 +182,7 @@ void ProxyServer::makeRemoteRequest(std::string request, std::string host)
 		int bytesReceived = recv(webSocket, buffer, sizeof(buffer), 0);
 		if (bytesReceived == SOCKET_ERROR)
 		{
-			std::cerr << "# Error in recv()." << std::endl;
-			break;
+			throw std::exception("Error in recv().");
 		}
 
 		if (bytesReceived == 0)
@@ -199,13 +198,16 @@ void ProxyServer::makeRemoteRequest(std::string request, std::string host)
 
 	std::cout << "> Host response fetched." << std::endl;
 
-	response->body = serverResponse;
+	// TODO
+	//response->body = serverResponse;
+	response->parse(serverResponse);
 }
 
 void ProxyServer::cleanUp()
 {
-	// Close the socket
+	// Close the sockets
 	closesocket(clientSocket);
+	closesocket(serverSocket);
 
 	// Cleanup winsock
 	WSACleanup();
